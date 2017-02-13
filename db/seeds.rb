@@ -3,5 +3,63 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies = Movie.create([{ model: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Motorbike.destroy_all
+
+motorbikes = [
+  {
+    user_id: 1,
+    model: "Shiver 750",
+    brand: "Aprilia",
+    },
+  {
+    user_id: 1,
+    model: "Dorsoduro 750",
+    brand: "Aprilia",
+    },
+  {
+    user_id: 1,
+    model: "SR Max 300 ie",
+    brand: "Aprilia",
+    },
+  {
+    user_id: 1,
+    model: "SRV 850 ie",
+    brand: "Aprilia",
+    },
+  {
+    user_id: 1,
+    model: "C 650 Sport",
+    brand: "BMW",
+    },
+  {
+    user_id: 1,
+    model: " C 650 GT",
+    brand: "BMW",
+    },
+  {
+    user_id: 1,
+    model: "F 700 GS ",
+    brand: "BMW",
+    },
+  {
+    user_id: 1,
+    model: "F 800 GS",
+    brand: "BMW",
+    },
+  {
+    user_id: 1,
+    model: "F 800 GT",
+    brand: "BMW",
+    },
+  {
+    user_id: 1,
+    model: "Scrambler 800",
+    brand: "Ducati",
+    },
+]
+
+
+motorbikes.each { |m| Motorbike.create(m) }
