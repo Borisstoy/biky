@@ -7,6 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Motorbike.destroy_all
+user = [
+  {
+    email: "toto@gmail.com",
+    password: "123456",
+  }
+
+]
+User.create!(user)
 
 motorbikes = [
   {
