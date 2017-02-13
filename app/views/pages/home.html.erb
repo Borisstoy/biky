@@ -3,7 +3,12 @@
 <div class="container">
   <div class="row">
   <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <ul>
+  <% @motorbikes.each do |motorbike| %>
+  <li><%= motorbike.brand %></li>
+  <li><%= motorbike.model %></li>
+  <% end %>
+</ul>
 </div>
 </div>
 
