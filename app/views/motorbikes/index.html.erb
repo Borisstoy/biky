@@ -1,8 +1,5 @@
 <% @motorbikes.each do |motorbike| %>
-  <%= link_to motorbike_path(motorbike) do %>
-    <h3>
-      <%= motorbike.brand %> <%= motorbike.model %>
-    </h3>
-    <p><%= motorbike.description %></p>
-  <% end %>
+  <%= motorbike.brand %>
+  <%= motorbike.model %>_
+  <%= motorbike.description %>
 <% end %>
