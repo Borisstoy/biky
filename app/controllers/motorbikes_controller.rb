@@ -12,10 +12,13 @@ class MotorbikesController < ApplicationController
   end
 
   def create
-    motorbike = Motorbike.new(motorbike_params)
-    motorbike.user = current_user
-    motorbike.save
-    redirect_to motorbike_path(motorbike)
+    @motorbike = Motorbike.new(motorbike_params)
+    @motorbike.user = current_user
+    if @motorbike.save
+      redirect_to motorbike_path(@motorbike)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,9 +26,13 @@ class MotorbikesController < ApplicationController
   end
 
   def update
-    motorbike = Motorbike.find(params[:id])
-    motorbike.update(motorbike_params)
-    redirect_to motorbike_path(motorbike)
+    @motorbike = Motorbike.find(params[:id])
+
+    if @motorbike.update(motorbike_params)
+      redirect_to motorbike_path(@motorbike)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -40,4 +47,3 @@ class MotorbikesController < ApplicationController
     params.require(:motorbike).permit(:brand, :model, :description)
   end
 end
-
