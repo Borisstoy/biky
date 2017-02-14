@@ -1,14 +1,13 @@
-<%= render "shared/banner" %>
-
+<%= render "banner" %>
 <div class="container">
   <div class="row">
-  <h1>Pages#home</h1>
-  <ul>
-  <% @motorbikes.each do |motorbike| %>
-  <li><%= motorbike.brand %></li>
-  <li><%= motorbike.model %></li>
-  <% end %>
-</ul>
-</div>
+  <div class="padded text-center">Find your own bike</div>
+  <% @motorbikes.first(3).each do |motorbike| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= render "card", motorbike: motorbike %>
+    </div>
+    <% end %>
+  </div>
+  <div class="padded text-center"></div>
 </div>
 

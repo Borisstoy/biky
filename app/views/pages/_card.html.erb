@@ -1,0 +1,15 @@
+<div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('assets/moto.jpg')">
+  <div class="card-category">Cruse</div>
+  <div class="card-description">
+  <h2><%= motorbike.brand %></h2>
+  <p><%= motorbike.model %> </p>
+  <i class="fa fa-star" style="color: yellow;"></i>
+  <i class="fa fa-star" style="color: yellow;"></i>
+  <i class="fa fa-star" style="color: yellow;"></i>
+  <i class="fa fa-star" style="color: yellow;"></i>
+  <i class="fa fa-star"></i>
+  </div>
+  <%= link_to "", motorbike_path(motorbike), class:"card-link" %>
+</div>
