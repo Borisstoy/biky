@@ -2,6 +2,9 @@
 <h2><%= @motorbike.brand %></h2>
 <h2><%= @motorbike.model %></h2>
 <p><%= @motorbike.description %></p>
+<% if @motorbike.photo? %>
+  <%= cl_image_tag @motorbike.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 
 <%= link_to 'Edit', edit_motorbike_path(@motorbike) %>
 <%= link_to 'Delete', motorbike_path(@motorbike),

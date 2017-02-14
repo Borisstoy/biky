@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :rentals
   end
   resources :users, only: [:show, :edit, :update]
+
+  mount Attachinary::Engine => "/attachinary"
 end

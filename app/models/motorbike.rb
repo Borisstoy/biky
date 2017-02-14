@@ -4,4 +4,6 @@ class Motorbike < ApplicationRecord
   validates :brand, presence: true
   validates :model, presence: true
   validates :description, presence: true
+  # CLOUDINRAY
+  has_attachment :photo
 end
