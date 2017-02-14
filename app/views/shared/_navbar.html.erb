@@ -6,6 +6,8 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Rent my motorbike"), new_motorbike_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -47,9 +49,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Rent my motorbike"), new_motorbike_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
