@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20170214132935) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.text     "description"
-    t.string   "last_name"
     t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
