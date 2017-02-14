@@ -1,10 +1,8 @@
 <div class="profil-card"
   style="background-image:
          url('https://avatars2.githubusercontent.com/u/18313150?v=3&u=ebea9da5f193229a8bbcc69db817da26a0f805e6&s=400')">
-  <div class="card-category">User</div>
+  <div class="card-category">Driver</div>
   <div class="card-description">
-  <h2><%= @user.first_name  %></h2>
-  <p><%= @user.last_name %> </p>
   <i class="fa fa-star" style="color: yellow;"></i>
   <i class="fa fa-star" style="color: yellow;"></i>
   <i class="fa fa-star" style="color: yellow;"></i>
@@ -12,7 +10,12 @@
   <i class="fa fa-star"></i>
   </div>
 </div>
-
+<div class="profil-card-text">
+  <h2><%= @user.first_name  %></h2>
+  <p><%= @user.last_name %> </p>
+  <p><%= @user.email %> </p>
+  <p><%= @user.description %> </p>
+</div>
 
 
 
