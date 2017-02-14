@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214095642) do
+ActiveRecord::Schema.define(version: 20170214102352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170214095642) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "category"
     t.index ["user_id"], name: "index_motorbikes_on_user_id", using: :btree
   end
 
@@ -65,9 +66,9 @@ ActiveRecord::Schema.define(version: 20170214095642) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.text     "description"
-    t.string   "last_name"
     t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
