@@ -1,3 +1,4 @@
+
 <h2><%= @motorbike.brand %></h2>
 <h2><%= @motorbike.model %></h2>
 <p><%= @motorbike.description %></p>
@@ -7,4 +8,4 @@
   method: :delete,
   data: { confirm: "Sure you want to delete the Motorbike ?"} %>
 
-<%= link_to 'Back to list', motorbikes_path %>
+<%= link_to 'Back to list', user_path(@user) %>
