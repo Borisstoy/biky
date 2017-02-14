@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+require "sprockets/railtie"
+require "attachinary/orm/active_record"
+
 Motorbike.destroy_all
 User.destroy_all
 users = [
@@ -35,6 +38,7 @@ users = [
 users.each do |u|
   puts "user '#{u[:email]}' created" if User.create!(u)
 end
+
 
 motorbikes = [
   {
@@ -125,5 +129,10 @@ motorbikes = [
 
 
 motorbikes.each do |m|
-  puts "motorbike '#{m[:brand]} #{m[:model]}' created" if Motorbike.create!(m)
+  motorbike = Motorbike.create!(m)
+  if motorbike
+    puts "motorbike '#{m[:brand]} #{m[:model]}' created"
+    url = "http://downloadicons.net/sites/default/files/motorcycle-icon-60859.png"
+    motorbike.photo_url = url
+  end
 end
