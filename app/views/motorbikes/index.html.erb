@@ -1,9 +1,24 @@
-<% @motorbikes.each do |motorbike| %>
-  <%= link_to motorbike_path(motorbike) do %>
-    <h3>
-      <%= motorbike.brand %> <%= motorbike.model %>
-    </h3>
-    <p><%= motorbike.description %></p>
-  <% end %>
-<% end %>
-
+<div class="container">
+  <div class="row">
+      <% @motorbikes.each do |motorbike| %>
+        <%= link_to motorbike_path(motorbike) do %>
+          <div class="col-xs-12 col-md-4">
+            <div class="card">
+              <h3>
+                <div class="card-description">
+                <h2><%= motorbike.brand %></h2>
+                <p><%= motorbike.model %></p>
+                <i class="fa fa-star" style="color: yellow;"></i>
+                <i class="fa fa-star" style="color: yellow;"></i>
+                <i class="fa fa-star" style="color: yellow;"></i>
+                <i class="fa fa-star" style="color: yellow;"></i>
+                <i class="fa fa-star"></i>
+                </div>
+              </h3>
+              <p><%= motorbike.description %></p>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
