@@ -1,14 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-xs-offset-1 col-md-offset-2 col-md-8">
-      <h2>Hello <%= @user.first_name %> <%= @user.last_name %>!</h2>
-        <% @user.motorbikes.each do |moto|%>
-          <h4><%= moto.brand %></h4>
-          <h5><%= moto.model %></h5>
-          <p><%= moto.description %></p>
-        <% end %>
 
-        <%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-default' %>
+  <%= render "shared/subnav" %>
+
+<div class="container">
+<div class="padded-little"></div>
+  <div class="row">
+    <div class="col-md-3">
+     <%= render "profil-card" %>
+    </div>
+      <div class="col-md-9">
+      <%= render "rental-profil" %>
     </div>
   </div>
 </div>
+  <div class="padded"></div>
+
+
+
