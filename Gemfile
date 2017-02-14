@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 # USERS
 gem 'devise'
 
+# FB-connect
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
