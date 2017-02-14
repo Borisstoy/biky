@@ -5,39 +5,50 @@
 #
 #   movies = Movie.create([{ model: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-require "sprockets/railtie"
-require "attachinary/orm/active_record"
-
+puts "Destory of all motorbikes & users"
 Motorbike.destroy_all
 User.destroy_all
-users = [
+
+puts "Creation of JC, Boris, Jordan & Carl profiles (takes time because of uploading images)"
+carl = User.create!(
   {
     email: "carl@biky.com",
     password: "123456",
     first_name: "carl"
-  },
+  }
+)
+carl_pic_url = "https://yt3.ggpht.com/-iY9QAJh35ac/AAAAAAAAAAI/AAAAAAAAAAA/otPaUtPzYjc/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+carl.photo_url = carl_pic_url
+
+jordan = User.create!(
   {
     email: "jordan@biky.com",
     password: "123456",
     first_name: "jordan"
-  },
+  }
+)
+jordan_pic_url = "https://pbs.twimg.com/media/BiiXHv_IMAAUXqD.jpg"
+jordan.photo_url = jordan_pic_url
+
+boris = User.create!(
   {
     email: "boris@biky.com",
     password: "123456",
     first_name: "boris"
-  },
+  }
+)
+boris_pic_url = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAARzAAAAJDdkMmE3ZDEzLWVmYjgtNDJjOC1hYTI0LTE3ZmVkMjRmNmI5ZA.jpg"
+boris.photo_url = boris_pic_url
+
+jc = User.create!(
   {
     email: "jc@biky.com",
     password: "123456",
     first_name: "jc"
   }
-
-]
-users.each do |u|
-  puts "user '#{u[:email]}' created" if User.create!(u)
-end
+)
+jc_pic_url = "https://pbs.twimg.com/profile_images/1816740099/image.jpg"
+jc.photo_url = jc_pic_url
 
 
 motorbikes = [
