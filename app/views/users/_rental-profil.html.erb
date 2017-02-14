@@ -6,9 +6,9 @@
       <div class="row">
         </div>
           <div class="col-4">
-        <% @rental.each do |r|%>
-          <p>Brand: <%= r.motorbike.brand %></p>
-          <p>Model: <%= r.motorbike.model %></p>
+        <% @user.rentals do |r|%>
+          <p>Brand: <%= r.user.motorbikes %></p>
+          <p>Model: <%= r.user.name %></p>
           <p>Start Date: <%= r.start_date %></p>
           <p>End Date: <%= r.end_date %></p>
           <p>Status: <%= r.status? ? "accepted" : "pending" %></p>
