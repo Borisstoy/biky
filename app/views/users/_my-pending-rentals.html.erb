@@ -1,14 +1,19 @@
 <div class="container">
  <div class="row">
-   <div class="col-xs-12 col-md-9">
-     <% @user.rentals.each do |rent| %>
-     <p>Brand: <%= rent.motorbike.brand %></p>
-     <p>Model: <%= rent.motorbike.model %></p>
-     <p>Engine size: <%= rent.motorbike.engine_size %>CC</p>
-     <p>Price by day: <%= rent.motorbike.day_price %>€</p>
-     <p>Location: <%= rent.motorbike.location %></p>
-     <p>Statuts: <%= rent.status %></p>
-     <% end %>
-   </div>
+         <% @user.rentals.each do |r| %>
+      <div class="col-xs-12 col-md-10">
+          <div class="motorbike-card-detail grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path r.motorbike.photo.path %>')">
+          </div>
+              <div class="motorbike-card-name-detail">
+               <p><%= r.motorbike.brand %> <%= r.motorbike.model %></p>
+              <p>Owner: <%= r.motorbike.user.first_name %>  <img src="<%= cl_image_path r.motorbike.user.photo.path %>" alt="" class="avatar"></p>
+              <p>Location: <%= r.motorbike.location %></p>
+              <p>Status: <%= r.status %></p>
+            </div>
+            <div class="motorbile-card-price-detail">
+              <%= r.motorbike.day_price %>€
+            </div>
+      </div>
+    <% end %>
  </div>
 </div>
