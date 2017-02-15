@@ -1,41 +1,53 @@
-<div class="show">
-  <div class="moto-info">
-    <h2><%= @motorbike.brand %></h2>
-    <h2><%= @motorbike.model %></h2>
-    <p><%= @motorbike.description %></p>
-    <% if @motorbike.photo? %>
-    <%= cl_image_tag @motorbike.photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
+<div class="moto-wrapper text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="col-item">
+          <h2><%= @motorbike.brand %> <%= @motorbike.model %></h2>
+          <p><%= @motorbike.description %></p>
 
-    <%= link_to 'Edit', edit_motorbike_path(@motorbike) %>
-    <%= link_to 'Delete', motorbike_path(@motorbike),
-    method: :delete,
-    data: { confirm: "Sure you want to delete the Motorbike ?"} %>
-    <%= link_to 'Back to list', motorbikes_path %>
+          <%= link_to 'Edit', edit_motorbike_path(@motorbike), class: "btn btn-default" %>
+          <%= link_to 'Delete', motorbike_path(@motorbike),
+          method: :delete,
+          data: { confirm: "Sure you want to delete the Motorbike ?"},
+          class: "btn btn-danger" %>
+          <%= link_to 'Back to list', motorbikes_path, class: "btn btn-primary" %>
+          <hr>
+          <%= simple_form_for ([@motorbike, @rental]) do |f| %>
+          <%= f.submit "Book now!", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="col-item">
+          <% if @motorbike.photo? %>
+          <%= cl_image_tag @motorbike.photo.path, width: 400, crop: :fill, id: "moto-photo" %>
+          <% end %>
+        </div>
+      </div>
 
-    <%= simple_form_for ([@motorbike, @rental]) do |f| %>
-    <%= f.submit "Book now!", class: "btn btn-success" %>
-    <% end %>
+    </div>
   </div>
-  <div class="moto-localization">
-    <div id="map" style="width: 30%; height: 300px;"></div>
+</div>
 
-    <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
+<div class="map-container padded text-center">
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
     });
-    <% end %>
-    <% end %>
-  </div>
+  });
+  <% end %>
+  <% end %>
 </div>
