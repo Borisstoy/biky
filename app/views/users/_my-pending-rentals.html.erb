@@ -10,7 +10,6 @@
             <% unless moto.rentals.empty? %>
               <p>Brand: <%= moto.brand %></p>
               <p>Model: <%= moto.model %></p>
-              <%#= raise %>
               <p>Status: <%= moto.rentals.first.status %></p>
               <%= link_to "Confirm booking", motorbike_confirm_booking_path(moto, moto.rentals.first), method: :patch, class:'btn btn-success' %>
               <%= link_to "Cancel booking", motorbike_decline_booking_path(moto, moto.rentals.first), method: :put, class:'btn btn-danger' %>
@@ -18,7 +17,7 @@
           <% end %>
         </li>
       </ul>
-
+      <hr>
         </div>
     </div>
 <div class="panel-body">
