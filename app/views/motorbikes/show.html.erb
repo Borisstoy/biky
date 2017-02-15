@@ -1,3 +1,4 @@
+
 <div class="moto-wrapper text-center">
   <div class="container">
     <div class="row">
@@ -5,16 +6,23 @@
         <div class="col-item">
           <h2><%= @motorbike.brand %> <%= @motorbike.model %></h2>
           <p><%= @motorbike.description %></p>
-
-          <%= link_to 'Edit', edit_motorbike_path(@motorbike), class: "btn btn-default" %>
-          <%= link_to 'Delete', motorbike_path(@motorbike),
-          method: :delete,
-          data: { confirm: "Sure you want to delete the Motorbike ?"},
-          class: "btn btn-danger" %>
+          <% if user_signed_in? %>
+            <% if @motorbike.user == current_user %>
+              <%= link_to 'Edit', edit_motorbike_path(@motorbike), class: "btn btn-default" %>
+              <%= link_to 'Delete', motorbike_path(@motorbike),
+              method: :delete,
+              data: { confirm: "Sure you want to delete the Motorbike ?"},
+              class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
           <%= link_to 'Back to list', motorbikes_path, class: "btn btn-primary" %>
           <hr>
           <%= simple_form_for ([@motorbike, @rental]) do |f| %>
-          <%= f.submit "Book now!", class: "btn btn-success" %>
+          <% if user_signed_in? && @motorbike.user == current_user %>
+            <h2>Nice bike <%= @motorbike.user.first_name %> ;)</h2>
+          <% else %>
+            <%= f.submit "Book now!", class: "btn btn-success" %>
+          <% end %>
           <% end %>
         </div>
       </div>
