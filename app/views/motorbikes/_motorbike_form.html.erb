@@ -1,7 +1,9 @@
-<%= simple_form_for @motorbike do |f| %>
+<div class="form-new-user">
+  <%= simple_form_for @motorbike do |f| %>
   <%= f.input :brand %>
   <%= f.input :model %>
   <%= f.input :description %>
   <%= f.input :photo, as: :attachinary %>
   <%= f.submit "Add a motorbike", class: "btn btn-primary" %>
 <% end %>
+</div>
