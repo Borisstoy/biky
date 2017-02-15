@@ -13,15 +13,10 @@ class RentalsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-<<<<<<< HEAD
-
-  def edit
-=======
   def accept
     @rental.status = "Booked"
     @rental.save
     redirect_to user_path(@rental.motorbike.user)
->>>>>>> 6b018da7902bcd07829fd481b6ed846d2085631c
   end
 
   def decline
