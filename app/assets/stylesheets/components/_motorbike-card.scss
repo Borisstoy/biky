@@ -1,0 +1,44 @@
+.motorbike-card {
+  height: 220px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  border-radius: 2px;
+  margin: 1.5rem;
+}
+.motorbike-card-name {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size:20px;
+  font-weight: 600;
+}
+
+.motorbike-card-rating {
+  position: absolute;
+  left: 10px;
+  top: 40px;
+  font-size: 14px;
+}
+
+.motorbike-card-avatar {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.motorbike-card-owner-name {
+  font-size:20px;
+  position: absolute;
+  left: 60px;
+  bottom: 15px;
+}
+
+.motorbile-card-price {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
