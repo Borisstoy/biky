@@ -6,4 +6,6 @@ class Motorbike < ApplicationRecord
   validates :description, presence: true
   # CLOUDINRAY
   has_attachment :photo
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end

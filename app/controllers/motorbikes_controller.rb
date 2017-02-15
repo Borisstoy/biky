@@ -9,6 +9,13 @@ class MotorbikesController < ApplicationController
   def show
     @motorbike = Motorbike.find(params[:id])
     @rental = Rental.new
+    @motorbike_coordinates = { lat: @motorbike.latitude, lng: @motorbike.longitude }
+    @motorbike_array = [@motorbike]
+    @hash = Gmaps4rails.build_markers(@motorbike_array) do |motorbike, marker|
+      marker.lat motorbike.latitude
+      marker.lng motorbike.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new
@@ -51,4 +58,3 @@ class MotorbikesController < ApplicationController
     params.require(:motorbike).permit(:brand, :model, :description, :photo)
   end
 end
-
