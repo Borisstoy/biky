@@ -6,15 +6,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5em 0;
+  padding: 1em 0;
   p {
     margin-bottom: 0;
   }
   .profile-motor-picture {
-    flex: 0 0 auto;
+    flex: 0 0 20%;
   }
   .profile-motor-brand {
+    margin-left: 3rem;
     flex: 1 0 auto;
+    p {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
   }
   .profile-motor-model {
     flex: 0 0 20%;

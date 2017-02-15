@@ -6,7 +6,7 @@
           <% @user.motorbikes.each do |r| %>
             <div class="container-motor-profile">
               <div class="profile-motor-picture">
-                <p>hello</p>
+                <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
               </div>
               <div class="profile-motor-brand">
                 <p><%= r.brand %></p>
