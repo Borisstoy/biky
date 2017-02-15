@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+
   def edit
   end
 
