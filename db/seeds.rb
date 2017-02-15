@@ -50,63 +50,108 @@ motorbikes = [
     model: "Shiver 750",
     brand: "Aprilia",
     description: "description",
-    category: "Road"
+    category: "Road",
+    location: "Paris",
+    engine_size: "750",
+    kilometers: 1800,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "jc")[0].id,
     model: "Dorsoduro 750",
     brand: "Aprilia",
     description: "description",
-    category: "Road"
+    category: "Road",
+    location: "Paris",
+    engine_size: "750",
+    kilometers: 2800,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "jc")[0].id,
     model: "SR Max 300 ie",
     brand: "Aprilia",
     description: "description",
-    category: "Scooter"
+    category: "Scooter",
+    location: "Paris",
+    engine_size: "300",
+    kilometers: 5400,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "boris")[0].id,
     model: "C 650 Sport",
     brand: "BMW",
     description: "description",
-    category: ""
+    category: "Scooter",
+    location: "Montreal",
+    engine_size: "650",
+    kilometers: 1200,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "boris")[0].id,
     model: "F 700 GS",
     brand: "BMW",
     description: "description",
-    category: "Trail"
+    category: "Trail",
+    location: "Montreal",
+    engine_size: "700",
+    kilometers: 4230,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "jordan")[0].id,
     model: "F 800 GS",
     brand: "BMW",
     description: "description",
-    category: "Trail"
+    category: "Trail",
+    location: "Paris",
+    engine_size: "800",
+    kilometers: 1500,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "jordan")[0].id,
     model: "Scrambler 800",
     brand: "Ducati",
     description: "description",
-    category: "Road"
+    category: "Road",
+    location: "Paris",
+    engine_size: "800",
+    kilometers: 9800,
+    circulation_date: "2013",
+    day_price: 45
   },
     {
     user_id: User.where(first_name: "carl")[0].id,
     model: "YZF 450",
     brand: "Yamaha",
     description: "description",
-    category: "Off-Road"
+    category: "Off-Road",
+    location: "Paris",
+    engine_size: "450",
+    kilometers: 0,
+    circulation_date: "2013",
+    day_price: 45
     },
   {
     user_id: User.where(first_name: "carl")[0].id,
     model: "CRF 450",
     brand: "Honda",
     description: "description",
-    category: "Off-Road"
+    category: "Off-Road",
+    location: "Paris",
+    engine_size: "450",
+    kilometers: 0,
+    circulation_date: "2013",
+    day_price: 45
     },
 ]
 
