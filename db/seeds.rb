@@ -1,4 +1,4 @@
-puts "Destory of all motorbikes & users"
+puts "Destroy of all motorbikes & users"
 Motorbike.destroy_all
 User.destroy_all
 
@@ -20,7 +20,7 @@ jordan = User.create!(
     first_name: "jordan"
   }
 )
-jordan_pic_url = "https://pbs.twimg.com/media/BiiXHv_IMAAUXqD.jpg"
+jordan_pic_url = "https://avatars2.githubusercontent.com/u/18313150?v=3&u=ebea9da5f193229a8bbcc69db817da26a0f805e6&s=400"
 jordan.photo_url = jordan_pic_url
 
 boris = User.create!(
