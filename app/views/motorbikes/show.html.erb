@@ -1,17 +1,41 @@
+<div class="show">
+  <div class="moto-info">
+    <h2><%= @motorbike.brand %></h2>
+    <h2><%= @motorbike.model %></h2>
+    <p><%= @motorbike.description %></p>
+    <% if @motorbike.photo? %>
+    <%= cl_image_tag @motorbike.photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
 
-<h2><%= @motorbike.brand %></h2>
-<h2><%= @motorbike.model %></h2>
-<p><%= @motorbike.description %></p>
-<% if @motorbike.photo? %>
-  <%= cl_image_tag @motorbike.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+    <%= link_to 'Edit', edit_motorbike_path(@motorbike) %>
+    <%= link_to 'Delete', motorbike_path(@motorbike),
+    method: :delete,
+    data: { confirm: "Sure you want to delete the Motorbike ?"} %>
+    <%= link_to 'Back to list', motorbikes_path %>
 
-<%= link_to 'Edit', edit_motorbike_path(@motorbike) %>
-<%= link_to 'Delete', motorbike_path(@motorbike),
-  method: :delete,
-  data: { confirm: "Sure you want to delete the Motorbike ?"} %>
-<%= link_to 'Back to list', motorbikes_path %>
+    <%= simple_form_for ([@motorbike, @rental]) do |f| %>
+    <%= f.submit "Book now!", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="moto-localization">
+    <div id="map" style="width: 30%; height: 300px;"></div>
 
-<%= simple_form_for ([@motorbike, @rental]) do |f| %>
-  <%= f.submit "Book now!", class: "btn btn-success" %>
-<% end %>
+    <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+    <% end %>
+    <% end %>
+  </div>
+</div>
