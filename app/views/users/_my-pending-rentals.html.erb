@@ -1,16 +1,17 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-9">
-      <h2>My pending rentals</h2>
-      <% @user.rentals.each do |rent| %>
-          <p>Owner: <%= rent.motorbike.user.first_name %> <%= rent.motorbike.user.last_name %></p>
-          <p>Brand: <%= rent.motorbike.brand %></p>
-          <p>Model: <%= rent.motorbike.model %></p>
-          <p>Engine size: <%= rent.motorbike.engine_size %>CC</p>
-          <p>Price by day: <%= rent.motorbike.day_price %>€</p>
-          <p>Location: <%= rent.motorbike.location %></p>
-          <p>Statuts: <%= rent.status %></p>
-        <% end %>
-    </div>
-  </div>
+ <div class="row">
+   <div class="col-xs-12 col-md-9">
+     <h2>My pending rentals</h2>
+     <% @user.motorbikes.each do |moto| %>
+       <% unless moto.rentals.empty? %>
+         <p>Brand: <%= moto.brand %></p>
+         <p>Model: <%= moto.model %></p>
+         <p>Status: <%= moto.rentals.first.status %></p>
+         <%= link_to "Confirm booking", motorbike_confirm_booking_path(moto, moto.rentals.first), method: :patch, class:'btn btn-success' %>
+         <%= link_to "Cancel booking", motorbike_decline_booking_path(moto, moto.rentals.first), method: :put, class:'btn btn-danger' %>
+       <% end %>
+     <% end %>
+     <hr>
+   </div>
+ </div>
 </div>
