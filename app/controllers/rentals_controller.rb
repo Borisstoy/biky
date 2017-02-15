@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
-  before_action :set_motorbike, only: [ :new, :create, :edit, :update ]
+  before_action :set_motorbike, only: [ :new, :create, :accept, :decline ]
+  before_action :set_rental, only: [ :accept, :decline ]
   def index
     @rentals = Rental.all
   end
@@ -12,22 +13,28 @@ class RentalsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def edit
+  def accept
+    @rental.status = "Booked"
+    @rental.save
   end
 
-  def update
-    @rental.update(rental_params)
-    redirect_to user_path(current_user)
+  def decline
+    @rental.status = "Decline"
+    @rental.save
   end
 
   private
 
   def rental_params
-    params.require(:rental).permit(:stauts, :motorbike_id, :user_id, :start_date, :end_date)
+    params.require(:rental).permit(:status, :motorbike_id, :user_id, :start_date, :end_date)
   end
 
   def set_motorbike
     @motorbike = Motorbike.find(params[:motorbike_id])
+  end
+
+  def set_rental
+    @rental = Rental.find(params[:id])
   end
 
 end
