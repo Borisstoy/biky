@@ -14,23 +14,15 @@
             <p class="subnavbar-wagon-item subnavbar-wagon-button">My pending rentals</p>
           </a>
 
-          <div class="tab-content" id="bikes">
-            <%= render 'my-bikes' %>
-          </div>
-          <div class="tab-content hidden" id="rentals">
-            <%= render 'my-pending-rentals' %>
-          </div>
-
       </div>
     </div>
 
   </div>
 </div>
 
-
-<script>
-  $(document).ready((function) {
-  $(".tab").on("click", function(e){
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    $(".tab").on("click", function(e){
     // Change active tab
     $(".tab").removeClass("active");
     $(this).addClass("active");
@@ -40,6 +32,6 @@
     showTab = $(this).data("target");
     $(showTab).removeClass("hidden");
   });
-});
-</script>
+  <% end %>
+<% end %>
 
