@@ -1,9 +1,15 @@
 <div class="form-new-user">
   <%= simple_form_for @motorbike do |f| %>
-  <%= f.input :brand %>
-  <%= f.input :model %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.submit "Add a motorbike", class: "btn btn-primary" %>
-<% end %>
+    <%= f.input :location %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :day_price %>
+    <%= f.input :category %>
+    <%= f.input :engine_size %>
+    <%= f.input :circulation_date %>
+    <%= f.input :kilometers %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :attachinary %>
+    <%= f.submit "Add a motorbike", class: "btn btn-primary" %>
+  <% end %>
 </div>

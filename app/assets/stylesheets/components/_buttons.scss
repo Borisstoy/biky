@@ -20,10 +20,12 @@
   font-weight: bold;
   border-radius: 4px;
   padding: .8em 4em;
+  border: 2px solid #0B486B;
   &:hover {
     color: #fff;
     background-color: lighten(#0B486B, 10%);
     text-decoration: none;
+    border: 2px solid lighten(#0B486B, 10%);
   }
 }
 
