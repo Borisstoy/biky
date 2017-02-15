@@ -1,5 +1,6 @@
-
+<div class="container">
   <div class="row">
+    <h1>Choose a motorbikes</h1>
       <% @motorbikes.each do |motorbike| %>
         <%= link_to motorbike_path(motorbike) do %>
           <div class="col-xs-12 col-md-4">
@@ -17,7 +18,7 @@
               </h3>
               <p><%= motorbike.description %></p>
             </div>
-        </div>
+          </div>
       <% end %>
     <% end %>
   </div>

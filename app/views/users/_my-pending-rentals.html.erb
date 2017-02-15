@@ -1,0 +1,24 @@
+<div class="panel-header">
+  <p>My pending rentals</p>
+</div>
+<ul class="list-layout">
+  <li class="panel-body thread-read thread" id="thread_230364904">
+    <div class="row">
+      </div>
+        <div class="col-4">
+          <% @user.motorbikes.each do |moto| %>
+            <% unless moto.rentals.empty? %>
+              <p>Brand: <%= moto.brand %></p>
+              <p>Model: <%= moto.model %></p>
+              <p>Status: <%= moto.rentals.first.status %></p>
+              <%= link_to "Confirm booking", motorbike_confirm_booking_path(moto, moto.rentals.first), method: :patch, class:'btn btn-success' %>
+              <%= link_to "Cancel booking", motorbike_decline_booking_path(moto, moto.rentals.first), method: :put, class:'btn btn-danger' %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+      <hr>
+        </div>
+    </div>
+<div class="panel-body">
+</div>

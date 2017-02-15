@@ -1,6 +1,7 @@
   <div class="panel-header">
     <p>Your Rental</p>
   </div>
+<<<<<<< HEAD
   <ul class="list-layout">
     <li class="panel-body thread-read thread" id="thread_230364904">
       <div class="row">
@@ -16,7 +17,24 @@
 
             </li>
             </ul>
+=======
+
+    <ul class="list-layout">
+      <li class="panel-body thread-read thread" id="thread_230364904">
+        <div class="row">
+            <div class="col-md-12">
+              <% @user.rentals.each do |r|%>
+                <p>Brand: <%= r.motorbike.brand %></p>
+                <p>Model: <%= r.motorbike.model %></p>
+                <p>Start Date: <%= r.start_date %></p>
+                <p>End Date: <%= r.end_date %></p>
+                <p>Status <%= r.status %></p>
+              <% end %>
+>>>>>>> 6b018da7902bcd07829fd481b6ed846d2085631c
           </div>
-      </div>
-  <div class="panel-body">
-  </div>
+        </div>
+      </li>
+    </ul>
+
+<div class="panel-body">
+</div>

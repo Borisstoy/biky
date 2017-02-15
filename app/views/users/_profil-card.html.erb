@@ -1,13 +1,13 @@
 <div class="profil-card"
-  style="background-image:
-         url('https://avatars2.githubusercontent.com/u/18313150?v=3&u=ebea9da5f193229a8bbcc69db817da26a0f805e6&s=400')">
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<% if @user.photo? %><%= cl_image_path @user.photo.path, height: 300, width: 400, crop: :fill %><% else %><%= current_user.facebook_picture_url %><% end %>')"">
   <div class="card-category">Driver</div>
   <div class="card-description">
-  <i class="fa fa-star" style="color: yellow;"></i>
-  <i class="fa fa-star" style="color: yellow;"></i>
-  <i class="fa fa-star" style="color: yellow;"></i>
-  <i class="fa fa-star" style="color: yellow;"></i>
-  <i class="fa fa-star"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star"></i>
   </div>
 </div>
 <div class="profil-card-text">
@@ -16,8 +16,4 @@
   <p><%= @user.email %> </p>
   <p><%= @user.description %> </p>
 </div>
-
-
-
-
 

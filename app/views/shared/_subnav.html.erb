@@ -1,50 +1,45 @@
-<div class="subnavbar-wagon">
-  <!-- Logo -->
+<div class="container">
+  <div class="row">
+    <div class="subnavbar-wagon">
+      <!-- Logo -->
 
+      <!-- Right Navigation -->
+      <div class="subnavbar-wagon-right hidden-xs hidden-sm">
 
-  <!-- Right Navigation -->
-  <div class="subnavbar-wagon-right hidden-xs hidden-sm">
+          <p class="subnavbar-wagon-item subnavbar-wagon-button"><%= link_to t(".top_call_to_action", default: "Search for a motorbike"), motorbikes_path %></p>
+          <a class="tab active" data-target="#bikes">
+            <p class="subnavbar-wagon-item subnavbar-wagon-button">My bikes</p>
+          </a>
+          <a class="tab" data-target="#rentals">
+            <p class="subnavbar-wagon-item subnavbar-wagon-button">My pending rentals</p>
+          </a>
 
+          <div class="tab-content" id="bikes">
+            <%= render 'my-bikes' %>
+          </div>
+          <div class="tab-content hidden" id="rentals">
+            <%= render 'my-pending-rentals' %>
+          </div>
 
-
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
-
-
-      <!-- Profile picture and dropdown -->
-
-      <!-- Notification -->
-      <%= link_to motorbikes_path , class: "subnavbar-wagon-item subnavbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-motorcycle"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
-      <% end %>
-
-
-
-    <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "subnavbar-wagon-item subnavbar-wagon-link" %>
-
-    <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "My rentals"), user_path, class: "subnavbar-wagon-item subnavbar-wagon-button btn" %>
-    <%= link_to t(".top_call_to_action", default: "My bikes"), user_path, class: "subnavbar-wagon-item subnavbar-wagon-button btn" %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="subnavbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right subnavbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+      </div>
     </div>
+
   </div>
 </div>
+
+
+<script>
+  $(document).ready((function) {
+  $(".tab").on("click", function(e){
+    // Change active tab
+    $(".tab").removeClass("active");
+    $(this).addClass("active");
+    // Hide all tab-content (use class="hidden")
+    $(".tab-content").addClass("hidden");
+    // Show target tab-content (use class="hidden")
+    showTab = $(this).data("target");
+    $(showTab).removeClass("hidden");
+  });
+});
+</script>
 

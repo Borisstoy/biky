@@ -15,28 +15,25 @@
 }
 
 .panel-dark, .panel-header {
-    background-color: #edefed;
+    background-color: #fff;
 }
 
 .panel-header {
     color: #484848;
-    font-size: 16px;
+    font-size: 1.9em;
     padding-top: 12px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #dce0e0;
 }
 
 .panel-header, .panel-body, ul.panel-body>li, ol.panel-body>li, .panel-footer {
     position: relative;
     margin: 0;
     padding: 20px;
-    border-top: 1px solid #dce0e0;
 }
 .panel-body, ul.panel-body>li, ol.panel-body>li, .panel-footer {
     position: relative;
     margin: 0;
     padding: 20px;
-    border-top: 1px solid #dce0e0;
 }
 
 .panel-body {
@@ -46,9 +43,9 @@
     position: relative;
     margin: 0;
     padding: 20px;
-    border-top: 1px solid #dce0e0;
 }
 
 .list-unstyled, .list-layout, .subnav-list, .sidenav-list {
     list-style: none;
+    padding: 0;
 }
