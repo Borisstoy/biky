@@ -16,11 +16,13 @@ class RentalsController < ApplicationController
   def accept
     @rental.status = "Booked"
     @rental.save
+    redirect_to user_path(@rental.motorbike.user)
   end
 
   def decline
     @rental.status = "Decline"
     @rental.save
+    redirect_to user_path(@rental.motorbike.user)
   end
 
   private
