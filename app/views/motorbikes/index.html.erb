@@ -4,7 +4,7 @@
     <% @motorbikes.each do |motorbike| %>
       <%= link_to motorbike_path(motorbike) do %>
         <div class="col-xs-12 col-md-4">
-          <div class="motorbike-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
+          <div class="motorbike-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
             <div class="motorbike-card-name">
               <span><%= motorbike.brand %></span><span> <%= motorbike.model %></span>
             </div>
