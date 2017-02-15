@@ -4,6 +4,7 @@
       <h2>My motorbikes</h2>
         <div class="all-motor">
           <% @user.motorbikes.each do |r| %>
+          <%= link_to motorbike_path(r) do %>
             <div class="container-motor-profile">
               <div class="profile-motor-picture">
                 <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
@@ -16,6 +17,7 @@
               </div>
             </div>
             <hr>
+          <% end %>
           <% end %>
         </div>
     </div>
