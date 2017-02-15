@@ -3,7 +3,8 @@ class MotorbikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @motorbikes = Motorbike.all
+    location = params['location']
+    @motorbikes = Motorbike.where(location: location)
   end
 
   def show
