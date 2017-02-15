@@ -1,14 +1,23 @@
+.all-motor {
+  margin-top: 2.5rem;
+}
+
 .container-motor-profile {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1.5em 0;
+  p {
+    margin-bottom: 0;
+  }
   .profile-motor-picture {
-    flex: 0 0
+    flex: 0 0 auto;
   }
   .profile-motor-brand {
-
+    flex: 1 0 auto;
   }
   .profile-motor-model {
-
+    flex: 0 0 20%;
   }
 }
+
