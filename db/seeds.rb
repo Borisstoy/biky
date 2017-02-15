@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ model: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts "Destory of all motorbikes & users"
 Motorbike.destroy_all
 User.destroy_all
@@ -74,25 +67,11 @@ motorbikes = [
     category: "Scooter"
     },
   {
-    user_id: User.where(first_name: "jc")[0].id,
-    model: "SRV 850 ie",
-    brand: "Aprilia",
-    description: "description",
-    category: "Scooter"
-    },
-  {
     user_id: User.where(first_name: "boris")[0].id,
     model: "C 650 Sport",
     brand: "BMW",
     description: "description",
     category: ""
-    },
-  {
-    user_id: User.where(first_name: "boris")[0].id,
-    model: " C 650 GT",
-    brand: "BMW",
-    description: "description",
-    category: "Scooter"
     },
   {
     user_id: User.where(first_name: "boris")[0].id,
@@ -110,13 +89,6 @@ motorbikes = [
     },
   {
     user_id: User.where(first_name: "jordan")[0].id,
-    model: "F 800 GT",
-    brand: "BMW",
-    description: "description",
-    category: "Road"
-    },
-  {
-    user_id: User.where(first_name: "jordan")[0].id,
     model: "Scrambler 800",
     brand: "Ducati",
     description: "description",
@@ -124,26 +96,38 @@ motorbikes = [
   },
     {
     user_id: User.where(first_name: "carl")[0].id,
-    model: "YZ",
+    model: "YZF 450",
     brand: "Yamaha",
     description: "description",
     category: "Off-Road"
     },
   {
     user_id: User.where(first_name: "carl")[0].id,
-    model: "CR",
+    model: "CRF 450",
     brand: "Honda",
     description: "description",
     category: "Off-Road"
     },
 ]
 
+motorbikes_url = [
+  "http://www.aprilia.com/assets/aprilia-sites/master/models/moto/road/Shiver-750-ABS/gallery/my14/shiverabs_my14-34dx-Formula_red/original/shiverabs_my14-34dx-Formula_red.jpg",
+  "http://www.moto-station.com/ttesimages/motodivers/nouveautes2008/Aprilia_SMV_750_Dorsoduro_st3pz.jpg",
+  "http://databikes.com/imgs/a/a/d/a/t/aprilia__sr_max_300_i_e__2012_2_lgw.jpg",
+  "http://www.motorevue.com/wp-content/uploads/2014/8/91795/5.jpg",
+  "https://www.motoplanete.com/bmw/zoom-700px/BMW-F-700-GS-2014-700px.jpg",
+  "http://media.motoservices.com/media/cache/vehicle_detail/media/vehicle/885/BMW-F800GS-2013.jpg",
+  "http://cdn.powersportstv.com/392816_4_2016_Ducati_Scrambler_800_Full_Throttle.jpg",
+  "https://i.ytimg.com/vi/TDEGxGcMuII/maxresdefault.jpg",
+  "http://motocross.transworld.net/wp-content/blogs.dir/441/files/2015/08/Ride-Engineering-CRF450-Project-Bike-600x413.png"
+]
 
+i = 0
 motorbikes.each do |m|
   motorbike = Motorbike.create!(m)
   if motorbike
     puts "motorbike '#{m[:brand]} #{m[:model]}' created"
-    url = "http://downloadicons.net/sites/default/files/motorcycle-icon-60859.png"
-    motorbike.photo_url = url
+    motorbike.photo_url = motorbikes_url[i]
   end
+  i += 1
 end
