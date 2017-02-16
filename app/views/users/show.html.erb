@@ -8,7 +8,8 @@
     </div>
     <div class="col-md-9">
       <div class="tab-content" id="bikes">
-        <%= render 'my-bikes' %>
+
+      <%= render 'my-bikes' %>
       </div>
       <div class="tab-content hidden" id="rentals">
        <%= render 'my-pending-rentals' %>
@@ -16,6 +17,9 @@
       <div class="tab-content hidden" id="requests">
        <%= render 'my-rentals-requests' %>
       </div>
+       <div class="tab-content hidden" id="past-rentals">
+         <%= render 'my-past-rentals' %>
+       </div>
     </div>
   </div>
 </div>

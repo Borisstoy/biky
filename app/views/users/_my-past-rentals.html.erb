@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+      <h2>Your past rentals</h2>
+        <% @rentals.each do |rent| %>
+          <p><%= rent.motorbike.brand %></p>
+          <p><%= rent.motorbike.model %></p>
+          <p><%= rent.motorbike.description %></p>
+          <p><%= rent.status %></p>
+          <%= simple_form_for Review.new, url: create_review_path(rent) do |f|%>
+            <%= f.input :content %>
+            <%= f.input :rate %>
+            <%= f.submit %>
+          <% end %>
+          <% @reviews.each do |review| %>
+            <p><%= review.rate %></p>
+            <p><%= review.content %></p>
+            <hr>
+          <% end %>
+        <% end %>
+          <h4 class="text-align">Rate your experience!</h4>
+    </div>
+  </div>
+</div>
