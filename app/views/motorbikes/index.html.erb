@@ -12,7 +12,7 @@
       <form action="/motorbikes">
         <div class="form-group">
           <label for="motorbike-type">Motorbike Type :</label>
-          <select class="form-control" id="motorbike-type" name="category">
+          <select class="form-control" id="motorbike-type" name="category" >
             <option></option>
             <option>Road</option>
             <option>Off-Road</option>
@@ -22,15 +22,15 @@
         </div>
         <div class="form-group">
           <label for="max-day-price">Maximum day price :</label>
-          <input type="text" class="form-control" id="max-day-price" name="max-day-price">
+          <input type="text" class="form-control" id="max-day-price" name="max-day-price" value="<%= @max_day_price %>">
         </div>
         <div class="form-group">
           <label for="min-eng-size">Minimum engine size :</label>
-          <input type="text" class="form-control" id="min-eng-size" name="min-eng-size">
+          <input type="text" class="form-control" id="min-eng-size" name="min-eng-size" value="<%= @min_eng_size %>">
         </div>
         <div class="form-group">
           <label for="max-eng-size">Maximum engine size :</label>
-          <input type="text" class="form-control" id="max-eng-size" name="max-eng-size">
+          <input type="text" class="form-control" id="max-eng-size" name="max-eng-size" value="<%= @max_eng_size %>">
         </div>
         <input type="hidden" name="location" value="<%= @location %>">
         <input type="hidden" name="start_date" value="<%= @picked_start_date %>">
@@ -43,27 +43,7 @@
         <% @motorbikes.each do |motorbike| %>
           <%= link_to motorbike_path(motorbike) do %>
             <div class="col-xs-12 col-md-6">
-              <div class="motorbike-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
-                <div class="motorbike-card-name">
-                  <span><%= motorbike.brand %></span><span> <%= motorbike.model %></span>
-                </div>
-                <div class="motorbile-card-price">
-                  <%= motorbike.day_price %>€
-                </div>
-                <div class="motorbike-card-owner-name">
-                  <%= motorbike.user.first_name %>
-                </div>
-                <div class="motorbike-card-avatar">
-                  <img src="<%= cl_image_path motorbike.user.photo.path %>" alt="" class="avatar">
-                </div>
-                <div class = "motorbike-card-rating">
-                  <i class="fa fa-star" style="color: yellow;"></i>
-                  <i class="fa fa-star" style="color: yellow;"></i>
-                  <i class="fa fa-star" style="color: yellow;"></i>
-                  <i class="fa fa-star" style="color: yellow;"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-              </div>
+              <%= render 'shared/motorbike_card', motorbike: motorbike %>
             </div>
           <% end %>
         <% end %>

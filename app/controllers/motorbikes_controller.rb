@@ -6,12 +6,16 @@ class MotorbikesController < ApplicationController
     @location = params['location']
     @picked_start_date = params['start_date']
     @picked_end_date = params['end_date']
+    @max_day_price = params['max-day-price']
+    @max_eng_size = params['max-eng-size']
+    @min_eng_size = params['min-eng-size']
+    @category = params['category']
     picked_start_date = DateTime.parse(params['start_date']).to_time unless params['start_date'].blank?
     picked_end_date = DateTime.parse(params['end_date']).to_time unless params['end_date'].blank?
 
 
     motorbikes = Motorbike.all
-    motorbikes = Motorbike.near(params['location'], 50) unless params['location'].blank?
+    motorbikes = Motorbike.near(params['location'], 30) unless params['location'].blank?
     motorbikes = motorbikes.where(category: params['category']) unless params['category'].blank?
     motorbikes = motorbikes.where('day_price <= ?', params['max-day-price'].to_i) unless params['max-day-price'].blank?
     motorbikes = motorbikes.where('engine_size <= ?', params['max-eng-size'].to_i) unless params['max-eng-size'].blank?
