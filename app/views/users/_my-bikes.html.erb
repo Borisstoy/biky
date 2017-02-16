@@ -1,23 +1,21 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-9 listing-profile">
-      <h2>My motorbikes</h2>
-        <div class="all-motor">
-          <% @user.motorbikes.each do |r| %>
-            <div class="container-motor-profile">
-              <div class="profile-motor-picture">
-                <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
-              </div>
-              <div class="profile-motor-brand">
-                <p><%= r.brand %></p>
-              </div>
-              <div class="profile-motor-model">
-                <p><%= r.model %></p>
-              </div>
+ <div class="row">
+         <% @user.motorbikes.each do |moto| %>
+      <div class="col-xs-12 col-md-10">
+          <div class="motorbike-card-detail grow" style="background-image: linear-gradient(25deg, rgba(0, 0, 0, 0.67) 0%, rgba(0,36,61,0.1) 90%), url('<%= cl_image_path moto.photo.path %>')">
+          </div>
+            <div class="motorbike-card-name-second-detail">
+              <p><%= moto.category %></p>
             </div>
-            <hr>
-          <% end %>
-        </div>
-    </div>
-  </div>
+
+            <div class="motorbile-card-price-detail">
+              <%= moto.day_price %>€
+            </div>
+            <div class="motorbike-card-description-detail">
+            <p><%= moto.brand %> <%= moto.model %></p>
+              <p><%= moto.location %></p>
+            </div>
+      </div>
+    <% end %>
+ </div>
 </div>
