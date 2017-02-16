@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+      <h2>Your past request</h2>
+        <% @rentals_booked.each do |rent| %>
+      <p> <%= rent.status %></p>
+     <p><%= rent.motorbike.brand %></p>
+      <% end %>
+          <h4 class="text-align">Rate your experience!</h4>
+    </div>
+  </div>
+</div>
+
+
