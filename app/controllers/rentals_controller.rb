@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
-  before_action :set_motorbike, only: [ :new, :create, :accept, :decline ]
-  before_action :set_rental, only: [ :accept, :decline ]
+  before_action :set_motorbike, only: [ :new, :create, :accept, :decline, :show ]
+  before_action :set_rental, only: [ :accept, :decline, :show ]
   def index
     @rentals = Rental.all
   end
@@ -11,6 +11,9 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.save
     redirect_to user_path(current_user)
+  end
+
+  def show
   end
 
   def accept
@@ -38,5 +41,4 @@ class RentalsController < ApplicationController
   def set_rental
     @rental = Rental.find(params[:id])
   end
-
 end
