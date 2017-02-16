@@ -1,5 +1,5 @@
 module ApplicationHelper
   def avatar_url(user)
-    user.facebook_picture_url || "http://placehold.it/30x30"
+    user.facebook_picture_url || cl_image_path(user.photo.path)
   end
 end
