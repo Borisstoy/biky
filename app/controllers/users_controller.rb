@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   def show
     @user = User.find(params[:id])
-    @rental = current_user.rentals
+    @rentals = current_user.rentals
+    @review = Review.new
+    @reviews = Review.all
   end
 
   def edit

@@ -38,5 +38,4 @@ class RentalsController < ApplicationController
   def set_rental
     @rental = Rental.find(params[:id])
   end
-
 end
