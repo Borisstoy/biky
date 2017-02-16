@@ -5,6 +5,13 @@
         <% @rentals_booked.each do |rent| %>
       <p> <%= rent.status %></p>
      <p><%= rent.motorbike.brand %></p>
+     <p><% rent.reviews.each do |review| %>
+       <%= review.content %>
+        <p><% (review.rate).times do %>
+        <i class="fa fa-star-o"></i>
+        <% end %></p>
+       <% end %>
+     </p>
       <% end %>
           <h4 class="text-align">Rate your experience!</h4>
     </div>
