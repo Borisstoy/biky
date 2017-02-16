@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :motorbikes do
     patch  "rentals/:id", to: "rentals#accept", as: :confirm_booking
     put  "rentals/:id", to: "rentals#decline", as: :decline_booking
-    resources :rentals, only: [:index, :create]
+    resources :rentals, only: [:index, :create, :show]
   end
   resources :users, only: [:show, :edit, :update]
   post "rentals/:rental_id/reviews", to: "reviews#create", as: :create_review

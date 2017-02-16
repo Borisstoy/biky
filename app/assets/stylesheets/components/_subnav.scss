@@ -58,12 +58,6 @@
 }
 
 /* subNavbar right button */
-.active {
-  .subnavbar-wagon-button {
-    color: #F56217;
-    text-transform: uppercase;
-  }
-}
 .subnavbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
@@ -72,10 +66,17 @@
   color: #0B486B;
   font-size: .8em;
   font-weight: bold;
-  text-transform: capitalize;
+  text-transform: uppercase;
+}
+.active {
+  .subnavbar-wagon-button {
+    color: #F56217;
+    text-transform: uppercase;
+  }
 }
 .subnavbar-wagon-button:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #F56217;
 }
 
 
