@@ -1,0 +1,23 @@
+<div class="motorbike-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
+  <div class="motorbike-card-name">
+    <span><%= motorbike.brand %></span><span> <%= motorbike.model %></span>
+  </div>
+  <div class="motorbile-card-price">
+    <%= motorbike.day_price %>€
+  </div>
+  <span class="motorbike-card-owner-name">
+    <%= motorbike.user.first_name %>
+  </span>
+  <div class="motorbike-card-avatar">
+    <img src="<%= cl_image_path motorbike.user.photo.path %>" alt="" class="avatar">
+  </div>
+  <div class = "motorbike-card-rating">
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star" style="color: yellow;"></i>
+    <i class="fa fa-star"></i>
+  </div>
+</div>
+
+
