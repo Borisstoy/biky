@@ -1,6 +1,6 @@
 <div class="motorbike-subnav-filters-form text-center">
   <form action="<%= motorbikes_path %>" class="form-inline">
-        <input type="text" class="form-control input-lg" placeholder="Where? " name="location" value="<%= @location %>">
+        <input type="text" class="form-control input-lg location" placeholder="Where? " name="location" value="<%= @location %>">
         <input data-provide="datepicker" class="form-control input-lg" placeholder="Start date " name="start_date" data-date-format="dd/mm/yyyy" value="<%= @picked_start_date %>">
         <input data-provide="datepicker" class="form-control input-lg" placeholder="End date" name="end_date" data-date-format="dd/mm/yyyy" value="<%= @picked_end_date %>">
         <input type="submit" class="button-blue" value="Search">

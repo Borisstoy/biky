@@ -55,7 +55,7 @@ motorbikes = [
     engine_size: 750,
     kilometers: 1800,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 87
     },
   {
     user_id: User.where(first_name: "jc")[0].id,
@@ -67,7 +67,7 @@ motorbikes = [
     engine_size: 750,
     kilometers: 2800,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 65
     },
   {
     user_id: User.where(first_name: "jc")[0].id,
@@ -79,7 +79,7 @@ motorbikes = [
     engine_size: 300,
     kilometers: 5400,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 98
     },
   {
     user_id: User.where(first_name: "boris")[0].id,
@@ -91,7 +91,7 @@ motorbikes = [
     engine_size: 650,
     kilometers: 1200,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 57
     },
   {
     user_id: User.where(first_name: "boris")[0].id,
@@ -103,7 +103,7 @@ motorbikes = [
     engine_size: 700,
     kilometers: 4230,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 26
     },
   {
     user_id: User.where(first_name: "jordan")[0].id,
@@ -115,7 +115,7 @@ motorbikes = [
     engine_size: 800,
     kilometers: 1500,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 68
     },
   {
     user_id: User.where(first_name: "jordan")[0].id,
@@ -139,7 +139,7 @@ motorbikes = [
     engine_size: 450,
     kilometers: 0,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 48
     },
   {
     user_id: User.where(first_name: "carl")[0].id,
@@ -151,7 +151,7 @@ motorbikes = [
     engine_size: 450,
     kilometers: 0,
     circulation_date: "2013",
-    day_price: 45
+    day_price: 32
     },
 ]
 

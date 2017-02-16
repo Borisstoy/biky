@@ -11,7 +11,7 @@ class MotorbikesController < ApplicationController
 
 
     motorbikes = Motorbike.all
-    motorbikes = motorbikes.where(location: params['location']) unless params['location'].blank?
+    motorbikes = Motorbike.near(params['location'], 50) unless params['location'].blank?
     motorbikes = motorbikes.where(category: params['category']) unless params['category'].blank?
     motorbikes = motorbikes.where('day_price <= ?', params['max-day-price'].to_i) unless params['max-day-price'].blank?
     motorbikes = motorbikes.where('engine_size <= ?', params['max-eng-size'].to_i) unless params['max-eng-size'].blank?
