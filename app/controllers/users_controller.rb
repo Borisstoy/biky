@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def show
     @rentals_booked = Rental.where(status: "Booked")
     @rentals_pending = Rental.where(status: "Pending")
-    @rentals_declined = Rental.where(status: "Decline")
     @user = User.find(params[:id])
     @rentals = current_user.rentals
     @review = Review.new
