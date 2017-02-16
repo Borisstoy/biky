@@ -8,8 +8,11 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new()
     @rental.motorbike = @motorbike
+    @rental.start_date = DateTime.parse(params['rental']['start_date'])
+    @rental.end_date = DateTime.parse(params['rental']['end_date'])
     @rental.user = current_user
     @rental.save
+    raise
     redirect_to user_path(current_user)
   end
 

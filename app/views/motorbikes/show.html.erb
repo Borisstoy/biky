@@ -17,12 +17,25 @@
           <% end %>
           <%= link_to 'Back to list', motorbikes_path, class: "btn btn-primary" %>
           <hr>
+
           <%= simple_form_for ([@motorbike, @rental]) do |f| %>
-          <% if user_signed_in? && @motorbike.user == current_user %>
-            <h2>Nice bike <%= @motorbike.user.first_name %> ;)</h2>
-          <% else %>
-            <%= f.submit "Book now!", class: "btn btn-success" %>
-          <% end %>
+            <% if user_signed_in? %>
+              <% if @motorbike.user == current_user %>
+                <h2>Nice bike <%= @motorbike.user.first_name %> ;)</h2>
+              <% elsif current_user.rentals.where(motorbike_id: @motorbike.id).first.nil? %>
+                <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+                <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
+                <%= f.submit "Book now!", class: "btn btn-success" %>
+              <% elsif current_user.rentals.where(motorbike_id: @motorbike.id).first.status == "Pending"%>
+                <h3><%= current_user.first_name.capitalize %>, your rental for this bike is pending ;)</h3>
+              <% elsif current_user.rentals.where(motorbike_id: @motorbike.id).first.status == "Booked"%>
+                <h3><%= current_user.first_name.capitalize %>, your rental for this bike has been aproved!</h3>
+              <% end %>
+            <% else %>
+              <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+              <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
+              <%= f.submit "Book now!", class: "btn btn-success" %>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -42,20 +55,22 @@
   <div id="map" style="width: 100%; height: 400px;"></div>
 
   <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-  $(document).ready(function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
+    <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+      $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+      $('.datepicker').datepicker();
     });
-  });
-  <% end %>
+    <% end %>
   <% end %>
 </div>

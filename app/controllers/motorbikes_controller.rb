@@ -9,7 +9,6 @@ class MotorbikesController < ApplicationController
     picked_start_date = DateTime.parse(params['start_date']).to_time unless params['start_date'].blank?
     picked_end_date = DateTime.parse(params['end_date']).to_time unless params['end_date'].blank?
 
-
     motorbikes = Motorbike.all
     motorbikes = Motorbike.near(params['location'], 50) unless params['location'].blank?
     motorbikes = motorbikes.where(category: params['category']) unless params['category'].blank?
@@ -17,27 +16,24 @@ class MotorbikesController < ApplicationController
     motorbikes = motorbikes.where('engine_size <= ?', params['max-eng-size'].to_i) unless params['max-eng-size'].blank?
     motorbikes = motorbikes.where('engine_size >= ?', params['min-eng-size'].to_i) unless params['min-eng-size'].blank?
 
-
     unless picked_start_date.nil? && picked_end_date.nil?
       motorbikes.each do |motorbike|
-        unless motorbike.rentals.first.nil?
-          mbk_end_date = motorbike.rentals.first.end_date.to_time
-          mbk_start_date = motorbike.rentals.first.start_date.to_time
-          if (mbk_start_date..mbk_end_date).include?(picked_end_date) && (mbk_start_date..mbk_end_date).include?(picked_start_date)
-            motorbikes = motorbikes.reject{|m| m == motorbike}
-          elsif (mbk_start_date..mbk_end_date).include?(picked_start_date)
-            motorbikes = motorbikes.reject{|m| m == motorbike}
-          elsif (mbk_start_date..mbk_end_date).include?(picked_end_date)
-            motorbikes = motorbikes.reject{|m| m == motorbike}
+        motorbike.rentals.each do |rental|
+          unless rental.nil?
+            mbk_end_date = rental.end_date.to_time
+            mbk_start_date = rental.start_date.to_time
+            if (mbk_start_date..mbk_end_date).include?(picked_end_date) && (mbk_start_date..mbk_end_date).include?(picked_start_date)
+              motorbikes = motorbikes.reject{|m| m == motorbike}
+            elsif (mbk_start_date..mbk_end_date).include?(picked_start_date)
+              motorbikes = motorbikes.reject{|m| m == motorbike}
+            elsif (mbk_start_date..mbk_end_date).include?(picked_end_date)
+              motorbikes = motorbikes.reject{|m| m == motorbike}
+            end
           end
         end
       end
     end
     @motorbikes = motorbikes
-
-
-
-
   end
 
   def show
@@ -92,6 +88,3 @@ class MotorbikesController < ApplicationController
     params.require(:motorbike).permit(:brand, :model, :description, :photo, :location, :engine_size, :kilometers, :circulation_date, :category, :day_price)
   end
 end
-
-
-
