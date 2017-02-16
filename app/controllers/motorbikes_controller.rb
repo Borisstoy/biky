@@ -3,8 +3,41 @@ class MotorbikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    location = params['location']
-    @motorbikes = Motorbike.where(location: location)
+    @location = params['location']
+    @picked_start_date = params['start_date']
+    @picked_end_date = params['end_date']
+    picked_start_date = DateTime.parse(params['start_date']).to_time unless params['start_date'].blank?
+    picked_end_date = DateTime.parse(params['end_date']).to_time unless params['end_date'].blank?
+
+
+    motorbikes = Motorbike.all
+    motorbikes = motorbikes.where(location: params['location']) unless params['location'].blank?
+    motorbikes = motorbikes.where(category: params['category']) unless params['category'].blank?
+    motorbikes = motorbikes.where('day_price <= ?', params['max-day-price'].to_i) unless params['max-day-price'].blank?
+    motorbikes = motorbikes.where('engine_size <= ?', params['max-eng-size'].to_i) unless params['max-eng-size'].blank?
+    motorbikes = motorbikes.where('engine_size >= ?', params['min-eng-size'].to_i) unless params['min-eng-size'].blank?
+
+
+    unless picked_start_date.nil? && picked_end_date.nil?
+      motorbikes.each do |motorbike|
+        unless motorbike.rentals.first.nil?
+          mbk_end_date = motorbike.rentals.first.end_date.to_time
+          mbk_start_date = motorbike.rentals.first.start_date.to_time
+          if (mbk_start_date..mbk_end_date).include?(picked_end_date) && (mbk_start_date..mbk_end_date).include?(picked_start_date)
+            motorbikes = motorbikes.reject{|m| m == motorbike}
+          elsif (mbk_start_date..mbk_end_date).include?(picked_start_date)
+            motorbikes = motorbikes.reject{|m| m == motorbike}
+          elsif (mbk_start_date..mbk_end_date).include?(picked_end_date)
+            motorbikes = motorbikes.reject{|m| m == motorbike}
+          end
+        end
+      end
+    end
+    @motorbikes = motorbikes
+
+
+
+
   end
 
   def show
