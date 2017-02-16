@@ -1,33 +1,73 @@
+<div class="motorbike-subnav-filters-form text-center">
+  <form action="<%= motorbikes_path %>" class="form-inline">
+        <input type="text" class="form-control input-lg" placeholder="Where? " name="location" value="<%= @location %>">
+        <input data-provide="datepicker" class="form-control input-lg" placeholder="Start date " name="start_date" data-date-format="dd/mm/yyyy" value="<%= @picked_start_date %>">
+        <input data-provide="datepicker" class="form-control input-lg" placeholder="End date" name="end_date" data-date-format="dd/mm/yyyy" value="<%= @picked_end_date %>">
+        <input type="submit" class="button-blue" value="Search">
+  </form>
+</div>
 <div class="container">
   <div class="row">
-    <h1>Choose a motorbike</h1>
-    <% @motorbikes.each do |motorbike| %>
-      <%= link_to motorbike_path(motorbike) do %>
-        <div class="col-xs-12 col-md-4">
-          <div class="motorbike-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
-            <div class="motorbike-card-name">
-              <span><%= motorbike.brand %></span><span> <%= motorbike.model %></span>
-            </div>
-            <div class="motorbile-card-price">
-              <%= motorbike.day_price %>€
-            </div>
-            <div class="motorbike-card-owner-name">
-              <%= motorbike.user.first_name %>
-            </div>
-            <div class="motorbike-card-avatar">
-              <img src="<%= cl_image_path motorbike.user.photo.path %>" alt="" class="avatar">
-            </div>
-            <div class = "motorbike-card-rating">
-              <i class="fa fa-star" style="color: yellow;"></i>
-              <i class="fa fa-star" style="color: yellow;"></i>
-              <i class="fa fa-star" style="color: yellow;"></i>
-              <i class="fa fa-star" style="color: yellow;"></i>
-              <i class="fa fa-star"></i>
-            </div>
-          </div>
+    <div class="col-xs-12 col-md-4 motorbikes-filters-form" >
+      <form action="/motorbikes">
+        <div class="form-group">
+          <label for="motorbike-type">Motorbike Type :</label>
+          <select class="form-control" id="motorbike-type" name="category">
+            <option></option>
+            <option>Road</option>
+            <option>Off-Road</option>
+            <option>Scooter</option>
+            <option>Trail</option>
+          </select>
         </div>
-    <% end %>
-    <% end %>
+        <div class="form-group">
+          <label for="max-day-price">Maximum day price :</label>
+          <input type="text" class="form-control" id="max-day-price" name="max-day-price">
+        </div>
+        <div class="form-group">
+          <label for="min-eng-size">Minimum engine size :</label>
+          <input type="text" class="form-control" id="min-eng-size" name="min-eng-size">
+        </div>
+        <div class="form-group">
+          <label for="max-eng-size">Maximum engine size :</label>
+          <input type="text" class="form-control" id="max-eng-size" name="max-eng-size">
+        </div>
+        <input type="hidden" name="location" value="<%= @location %>">
+        <input type="hidden" name="start_date" value="<%= @picked_start_date %>">
+        <input type="hidden" name="end_date" value="<%= @picked_end_date %>">
+        <input type="submit" class="btn btn-primary" value="Search">
+      </form>
+    </div>
+    <div class="col-xs-12 col-md-8 container">
+      <div class="row">
+        <% @motorbikes.each do |motorbike| %>
+          <%= link_to motorbike_path(motorbike) do %>
+            <div class="col-xs-12 col-md-6">
+              <div class="motorbike-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path motorbike.photo.path %>')">
+                <div class="motorbike-card-name">
+                  <span><%= motorbike.brand %></span><span> <%= motorbike.model %></span>
+                </div>
+                <div class="motorbile-card-price">
+                  <%= motorbike.day_price %>€
+                </div>
+                <div class="motorbike-card-owner-name">
+                  <%= motorbike.user.first_name %>
+                </div>
+                <div class="motorbike-card-avatar">
+                  <img src="<%= cl_image_path motorbike.user.photo.path %>" alt="" class="avatar">
+                </div>
+                <div class = "motorbike-card-rating">
+                  <i class="fa fa-star" style="color: yellow;"></i>
+                  <i class="fa fa-star" style="color: yellow;"></i>
+                  <i class="fa fa-star" style="color: yellow;"></i>
+                  <i class="fa fa-star" style="color: yellow;"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-

@@ -52,7 +52,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Road",
     location: "Paris",
-    engine_size: "750",
+    engine_size: 750,
     kilometers: 1800,
     circulation_date: "2013",
     day_price: 45
@@ -64,7 +64,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Road",
     location: "Paris",
-    engine_size: "750",
+    engine_size: 750,
     kilometers: 2800,
     circulation_date: "2013",
     day_price: 45
@@ -76,7 +76,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Scooter",
     location: "Paris",
-    engine_size: "300",
+    engine_size: 300,
     kilometers: 5400,
     circulation_date: "2013",
     day_price: 45
@@ -88,7 +88,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Scooter",
     location: "Montreal",
-    engine_size: "650",
+    engine_size: 650,
     kilometers: 1200,
     circulation_date: "2013",
     day_price: 45
@@ -100,7 +100,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Trail",
     location: "Montreal",
-    engine_size: "700",
+    engine_size: 700,
     kilometers: 4230,
     circulation_date: "2013",
     day_price: 45
@@ -112,7 +112,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Trail",
     location: "Paris",
-    engine_size: "800",
+    engine_size: 800,
     kilometers: 1500,
     circulation_date: "2013",
     day_price: 45
@@ -124,7 +124,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Road",
     location: "Paris",
-    engine_size: "800",
+    engine_size: 800,
     kilometers: 9800,
     circulation_date: "2013",
     day_price: 45
@@ -136,7 +136,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Off-Road",
     location: "Paris",
-    engine_size: "450",
+    engine_size: 450,
     kilometers: 0,
     circulation_date: "2013",
     day_price: 45
@@ -148,7 +148,7 @@ motorbikes = [
     description: "This moto is very versatile. It performs quite well both in the city and in the countryside. Great for daily commutes to work, awesome for any week-end trip. Quite comfy too, both for the driver and the passenger. A real pleasure to ride!",
     category: "Off-Road",
     location: "Paris",
-    engine_size: "450",
+    engine_size: 450,
     kilometers: 0,
     circulation_date: "2013",
     day_price: 45

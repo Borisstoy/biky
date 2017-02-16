@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170216113837) do
     t.string   "brand"
     t.string   "model"
     t.text     "description"
-    t.string   "engine_size"
     t.integer  "kilometers"
     t.string   "circulation_date"
     t.string   "location"
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170216113837) do
     t.string   "category"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "engine_size"
     t.index ["user_id"], name: "index_motorbikes_on_user_id", using: :btree
   end
 
