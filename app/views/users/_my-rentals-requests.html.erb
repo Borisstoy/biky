@@ -1,4 +1,7 @@
 <h2>Manage my requests</h2>
+<% if @rentals_pending.empty?  %>
+<p>You dont have any pending rentals, keep it up!</p>
+<% else  %>
 <% @rentals_pending.each do |rental| %>
     <div class="wrapper-rental-approval">
       <% if current_user.id == rental.motorbike.user_id  %>
@@ -20,5 +23,6 @@
       </div>
       <% end %>
     </div>
+<% end  %>
 <% end  %>
 

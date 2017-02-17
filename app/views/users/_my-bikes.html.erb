@@ -1,5 +1,9 @@
 <h2>My motorbikes</h2>
 <div class="all-motor">
+<% if current_user.motorbikes.empty?  %>
+<p>You dont have any motorbikes but you can add one</p>
+<p><%=link_to t(".top_call_to_action", default: "Click here to add a Motorbike"), new_motorbike_path, class: "navbar-new-motorbike"%></p>
+<% else %>
   <% @user.motorbikes.each do |r| %>
   <div class="container-motor-profile">
     <div class="profile-motor-picture">
@@ -15,5 +19,6 @@
   </div>
   <hr>
   <% end %>
+  <%end  %>
 </div>
 

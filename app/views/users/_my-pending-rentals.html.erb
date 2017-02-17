@@ -1,4 +1,7 @@
 <h2>My rentals</h2>
+<% if current_user.rentals.empty?  %>
+<p>You dont have any rentals but you can rent a bike</p>
+<% else  %>
 <% @user.rentals.each do |rent| %>
   <%= link_to motorbike_path(rent.motorbike), class: 'link-rental' do %>
     <div class="container-motor-profile grow">
@@ -28,4 +31,4 @@
     <hr>
   <% end %>
 <% end %>
-
+<%end %>
