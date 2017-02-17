@@ -6,6 +6,7 @@ class Motorbike < ApplicationRecord
   validates :model, presence: true
   validates :day_price, presence: true
   validates :location, presence: true
+  validates :category, presence: true
   validates :category, inclusion: { in: CATEGORIES }
   # CLOUDINRAY
   has_attachment :photo
