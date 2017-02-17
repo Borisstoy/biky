@@ -12,11 +12,9 @@
     <img src="<%= cl_image_path motorbike.user.photo.path %>" alt="" class="avatar">
   </div>
   <div class = "motorbike-card-rating">
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star"></i>
+    <% (motorbike.average_rating).times do %>
+      <i class="fa fa-star"></i>
+    <% end %></p>
   </div>
 </div>
 

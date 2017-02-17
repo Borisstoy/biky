@@ -1,5 +1,6 @@
 .moto-wrapper {
  margin-top: 30px;
+ padding: 2em 0;
 }
 
 #moto-photo {
@@ -9,6 +10,11 @@
 .col-item {
  margin-top: 20px;
 }
+
+.col-item-left {
+  text-align: left;
+}
+
 .profile-motor-model {
  flex: 0 0 20%;
  .profile-status {
@@ -68,12 +74,19 @@
 }
 
 .rental-detail .avatar {
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
   position: absolute;
   border: solid white 1px;
   top: -25px;
+}
 
+.wrapper-review-show {
+  border-top: 1px solid #eaeaea;
+  padding: 2em 0;
+  ul {
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
 }
