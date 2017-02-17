@@ -1,3 +1,6 @@
+<% if current_user.rentals.empty?  %>
+<h2>Rate my rentals</h2>
+<% else  %>
 <h2>Rate my rentals</h2>
 <div class="container-past-rentals">
   <% @rentals.each do |rent| %>
@@ -36,3 +39,4 @@
     <hr>
   <% end %>
 </div>
+<% end %>

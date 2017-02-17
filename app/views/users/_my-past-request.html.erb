@@ -1,3 +1,6 @@
+<% if @rentals.empty?  %>
+<p>You dont have any request, keep it up!</p>
+<% else  %>
 <h2>My past request</h2>
 <div class="all-motor">
   <% @rentals_booked.each do |rent| %>
@@ -21,6 +24,6 @@
     <% end %>
   <% end %>
 </div>
-
+<% end %>
 
 
