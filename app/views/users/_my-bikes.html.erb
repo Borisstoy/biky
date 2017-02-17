@@ -6,10 +6,11 @@
       <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
     </div>
     <div class="profile-motor-brand">
-      <p><%= r.brand %></p>
+      <h4><%= r.brand %></h4>
+      <p><%= r.model %></p>
     </div>
     <div class="profile-motor-model">
-      <p><%= r.model %></p>
+      <p class="price-motor"><%= r.day_price %>€</p>
     </div>
   </div>
   <hr>

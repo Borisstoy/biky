@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @rentals = current_user.rentals
     @review = Review.new
     @reviews = Review.all
+
   end
 
   def edit

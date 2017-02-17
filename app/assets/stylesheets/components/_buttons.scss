@@ -29,6 +29,26 @@
   }
 }
 
+.margin-right-button {
+  margin-right: 1.2em;
+}
+
+.button-orange {
+  background-color: #F56217;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: .8em 4em;
+  border: 2px solid #F56217;
+  &:hover {
+    color: #fff;
+    background-color: lighten(#F56217, 10%);
+    text-decoration: none;
+    border: 2px solid lighten(#F56217, 10%);
+  }
+}
+
 .button-navbar-home {
   background-color: none;
   text-decoration: none;
