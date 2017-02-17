@@ -50,20 +50,15 @@
 }
 
 /* Navbar right button */
-.navbar-wagon-button {
-  margin-left: 10px;
-  padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
-  background-color: #F56217;
-  color: white;
+.navbar-new-motorbike {
+  padding-right:20px;
+  color: #F56217;
   font-size: 14px;
-  border: 2px solid #F56217;
+  font-weight:500;
 }
-.navbar-wagon-button:hover {
-  color: white;
-  background: #0B486B;
-  border-color: #0B486B;
+.navbar-new-motorbike:hover {
+  color: #0B486B;
+  text-decoration:none;
 }
 
 /* Navbar search form */
