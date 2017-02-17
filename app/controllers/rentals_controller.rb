@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @rental.end_date = DateTime.parse(params['rental']['end_date'])
     @rental.user = current_user
     @rental.save
-    redirect_to user_path(current_user)
+    redirect_to motorbike_rental_path(@motorbike, @rental)
   end
 
   def show
