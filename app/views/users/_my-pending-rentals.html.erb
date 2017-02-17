@@ -11,6 +11,7 @@
          <p><%= rent.motorbike.engine_size %>CC</p>
          <p><%= rent.motorbike.day_price %>€</p>
          <p><%= rent.motorbike.location %></p>
+         <p>Owner: <%= rent.motorbike.user.first_name.capitalize %></p>
       </div>
       <div class="profile-motor-model">
         <% if rent.status == "Booked" %>
