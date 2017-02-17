@@ -1,7 +1,6 @@
-<p>You dont have any request, keep it up!</p>
-<% if @rentals.empty?  %>
-<% else  %>
 <h2>My past request</h2>
+<% @rentals_booked.each do |r|  %>
+<% unless current_user != r.motorbike.user %>
 <div class="all-motor">
   <% @rentals_booked.each do |rent| %>
     <%= link_to motorbike_path(rent.motorbike), class: 'link-rental' do %>
@@ -25,5 +24,5 @@
   <% end %>
 </div>
 <% end %>
-
+<% end  %>
 
