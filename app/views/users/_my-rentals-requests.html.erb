@@ -1,25 +1,24 @@
 <h2>Manage my requests</h2>
 <% @rentals_pending.each do |rental| %>
-  <div class="wrapper-rental-approval">
-    <% if current_user.id == rental.motorbike.user_id  %>
-    <h4><%= rental.user.first_name.capitalize %> is waiting for your reply</h4>
-    <p>Don't make him wait, accept or decline his booking request!</p>
-    <div class="container-motor-profile">
-      <div class="profile-motor-picture">
-        <img src="<%= cl_image_path rental.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
+    <div class="wrapper-rental-approval">
+      <% if current_user.id == rental.motorbike.user_id  %>
+      <h4><%= rental.user.first_name.capitalize %> is waiting for your reply</h4>
+      <p>Don't make him wait, accept or decline his booking request!</p>
+      <div class="container-motor-profile">
+        <div class="profile-motor-picture">
+          <img src="<%= cl_image_path rental.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
+        </div>
+        <div class="profile-motor-brand">
+          <h4><%= rental.motorbike.brand %></h4>
+          <p><%= rental.motorbike.model %></p>
+          <p><%= rental.status %></p>
+        </div>
       </div>
-      <div class="profile-motor-brand">
-        <h4><%= rental.motorbike.brand %></h4>
-        <p><%= rental.motorbike.model %></p>
-        <p><%= rental.status %></p>
+      <div class="wrapper-buttons-requests">
+        <%= link_to "CONFIRM", motorbike_confirm_booking_path(rental.motorbike, rental), method: :patch, class:'button-orange margin-right-button' %>
+        <%= link_to "DECLINE", motorbike_decline_booking_path(rental.motorbike, rental), method: :put, class:'button-blue' %>
       </div>
+      <% end %>
     </div>
-    <div class="wrapper-buttons-requests">
-      <%= link_to "CONFIRM", motorbike_confirm_booking_path(rental.motorbike, rental), method: :patch, class:'button-orange margin-right-button' %>
-      <%= link_to "DECLINE", motorbike_decline_booking_path(rental.motorbike, rental), method: :put, class:'button-blue' %>
-    </div>
-    <% end %>
-  </div>
-  <hr>
 <% end  %>
 

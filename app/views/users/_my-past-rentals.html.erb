@@ -14,7 +14,6 @@
           <p><%= rent.motorbike.location %></p>
         </div>
       </div>
-        <hr>
           <% rent.reviews.last(3).each do |review| %>
           <p class="sub-titles">Review</p>
           <p><%= review.content %></p>
@@ -32,5 +31,6 @@
         <% end %>
       <% end %>
     </div>
+    <hr>
   <% end %>
 </div>
