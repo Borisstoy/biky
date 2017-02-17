@@ -1,15 +1,10 @@
-<div class="container">
-<div class="row">
-  <div class="col-xs-12 col-md-9">
-    <% @rentals_pending.each do |rental| %>
-      <% if current_user.id == rental.motorbike.user_id  %>
-    <p>Brand: <%= rental.motorbike.brand %></p>
-    <p>Model: <%= rental.motorbike.model %></p>
-    <p>Status: <%= rental.status %></p>
-    <%= link_to "Confirm booking", motorbike_confirm_booking_path(rental.motorbike, rental), method: :patch, class:'btn btn-success' %>
-    <%= link_to "Cancel booking", motorbike_decline_booking_path(rental.motorbike, rental), method: :put, class:'btn btn-danger' %>
-    <% end %>
-    <% end  %>
-  </div>
-</div>
-</div>
+<% @rentals_pending.each do |rental| %>
+  <% if current_user.id == rental.motorbike.user_id  %>
+<p>Brand: <%= rental.motorbike.brand %></p>
+<p>Model: <%= rental.motorbike.model %></p>
+<p>Status: <%= rental.status %></p>
+<%= link_to "Confirm booking", motorbike_confirm_booking_path(rental.motorbike, rental), method: :patch, class:'btn btn-success' %>
+<%= link_to "Cancel booking", motorbike_decline_booking_path(rental.motorbike, rental), method: :put, class:'btn btn-danger' %>
+<% end %>
+<% end  %>
+

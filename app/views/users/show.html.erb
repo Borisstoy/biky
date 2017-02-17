@@ -1,15 +1,14 @@
 <%= render "shared/subnav" %>
 
 <div class="container">
-<div class="padded-little"></div>
+  <div class="padded-little"></div>
   <div class="row">
     <div class="col-md-3">
      <%= render "profil-card" %>
     </div>
     <div class="col-md-9">
       <div class="tab-content" id="bikes">
-
-      <%= render 'my-bikes' %>
+        <%= render 'my-bikes' %>
       </div>
       <div class="tab-content hidden" id="rentals">
        <%= render 'my-pending-rentals' %>
@@ -17,12 +16,12 @@
       <div class="tab-content hidden" id="requests">
        <%= render 'my-rentals-requests' %>
       </div>
-       <div class="tab-content hidden" id="past-rentals">
-         <%= render 'my-past-rentals' %>
-       </div>
-        <div class="tab-content hidden" id="past-request">
-         <%= render 'my-past-request' %>
-       </div>
+      <div class="tab-content hidden" id="past-rentals">
+       <%= render 'my-past-rentals' %>
+      </div>
+      <div class="tab-content hidden" id="past-request">
+       <%= render 'my-past-request' %>
+      </div>
     </div>
   </div>
 </div>

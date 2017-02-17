@@ -1,23 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-9 listing-profile">
-      <h2>My motorbikes</h2>
-        <div class="all-motor">
-          <% @user.motorbikes.each do |r| %>
-            <div class="container-motor-profile">
-              <div class="profile-motor-picture">
-                <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
-              </div>
-              <div class="profile-motor-brand">
-                <p><%= r.brand %></p>
-              </div>
-              <div class="profile-motor-model">
-                <p><%= r.model %></p>
-              </div>
-            </div>
-            <hr>
-          <% end %>
-        </div>
+<h2>My motorbikes</h2>
+<div class="all-motor">
+  <% @user.motorbikes.each do |r| %>
+  <div class="container-motor-profile">
+    <div class="profile-motor-picture">
+      <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
+    </div>
+    <div class="profile-motor-brand">
+      <p><%= r.brand %></p>
+    </div>
+    <div class="profile-motor-model">
+      <p><%= r.model %></p>
     </div>
   </div>
+  <hr>
+  <% end %>
 </div>
+

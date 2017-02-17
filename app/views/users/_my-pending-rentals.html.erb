@@ -1,23 +1,26 @@
-<div class="container">
- <div class="row">
-   <div class="col-xs-12 col-md-9">
-      <% @user.rentals.each do |rent| %>
-        <div class="container-motor-profile">
-          <div class="profile-motor-picture">
-            <img src="<%= cl_image_path rent.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
-          </div>
-          <div class="profile-motor-brand">
-             <h4><%= rent.motorbike.brand %></h4>
-             <p><%= rent.motorbike.model %></p>
-             <p><%= rent.motorbike.engine_size %>CC</p>
-             <p><%= rent.motorbike.day_price %>€</p>
-             <p><%= rent.motorbike.location %></p>
-          </div>
-          <div class="profile-motor-model">
-             <div class="profile-status"><p><%= rent.status %></p></div>
-          </div>
+<% @user.rentals.each do |rent| %>
+  <div class="container-motor-profile">
+    <div class="profile-motor-picture">
+      <img src="<%= cl_image_path rent.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
+    </div>
+    <div class="profile-motor-brand">
+       <h4><%= rent.motorbike.brand %></h4>
+       <p><%= rent.motorbike.model %></p>
+       <p><%= rent.motorbike.engine_size %>CC</p>
+       <p><%= rent.motorbike.day_price %>€</p>
+       <p><%= rent.motorbike.location %></p>
+    </div>
+    <div class="profile-motor-model">
+      <% if rent.status == "Booked" %>
+        <div class="profile-status-booked">
+          <p><%= rent.status %></p>
+        </div>
+      <% else %>
+        <div class="profile-status-pending">
+          <p><%= rent.status %></p>
         </div>
       <% end %>
-   </div>
- </div>
-</div>
+    </div>
+  </div>
+<% end %>
+
