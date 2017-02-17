@@ -1,3 +1,12 @@
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 1em 0;
+    padding: 0;
+}
+
 .all-motor {
   margin-top: 2.5rem;
 }
@@ -24,6 +33,10 @@
   }
   .profile-motor-model {
     flex: 0 0 20%;
+    .price-motor {
+      font-size: 1.8em;
+      color: #F56217;
+    }
     .profile-status {
       border: 2px solid #0B486B;
       text-align: center;
@@ -54,4 +67,66 @@
     }
   }
 }
+.container-past-rentals {
+  padding: 1.5em 0;
+  .container-top-rate {
+    display: flex;
+    justify-content: flex-start;
+    align-item: center;
+    .rate-photo {
+      flex: 0 0 30%;
+    }
+    .rate-info {
+      flex: 1 0 70%;
+    }
 
+  }
+}
+
+.fa-star {
+  color: #F56217;
+  font-size: 1.5em;
+}
+
+.sub-titles {
+  font-size: .8em;
+  text-transform: uppercase;
+  color: #969696;
+}
+
+.wrapper-info-requests {
+
+}
+
+.wrapper-buttons-requests {
+  margin: 1.5rem 0;
+  padding-bottom: 1em;
+}
+
+.wrapper-rental-approval {
+  padding: 1em 0;
+}
+
+.wrapper-rate-my-rental {
+  padding: 1em 0;
+}
+
+.link-rental {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.title-rating-av {
+  font-size: .8em;
+  text-transform: uppercase;
+  color: #969696;
+  padding-bottom: 2em;
+}
+
+.hover-motor-profile {
+  &:hover {
+    background-color: #fff;
+  }
+}

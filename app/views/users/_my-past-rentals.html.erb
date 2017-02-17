@@ -1,19 +1,36 @@
-<h2>Your past rentals</h2>
+<h2>Rate my rentals</h2>
+<div class="container-past-rentals">
   <% @rentals.each do |rent| %>
-    <% if rent.status == "Booked" %>
-        <h3><%= rent.motorbike.brand %></h3>
-        <p><%= rent.motorbike.model %></p>
-        <p><%= rent.motorbike.description %></p>
+    <div class="wrapper-rate-my-rental">
+      <% if rent.status == "Booked" %>
+      <div class="container-top-rate">
+        <div class="rate-photo">
+          <img src="<%= cl_image_path rent.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
+        </div>
+        <div class="rate-infos">
+          <h4><%= rent.motorbike.brand %></h4>
+          <p><%= rent.motorbike.model %></p>
+          <p><%= rent.motorbike.engine_size %></p>
+          <p><%= rent.motorbike.location %></p>
+        </div>
+      </div>
           <% rent.reviews.last(3).each do |review| %>
+          <p class="sub-titles">Review</p>
           <p><%= review.content %></p>
+          <p class="sub-titles">Rating</p>
           <p><% (review.rate).times do %>
-            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star"></i>
           <% end %></p>
         <% end %>
+        <hr>
+        <h5>Leave a comment</h5>
         <%= simple_form_for Review.new, url: create_review_path(rent) do |f|%>
          <%= f.input :content %>
          <%= f.input :rate %>
-         <%= f.submit %>
+         <%= f.submit "POST", class:'button-blue'%>
         <% end %>
-    <% end %>
+      <% end %>
+    </div>
+    <hr>
   <% end %>
+</div>

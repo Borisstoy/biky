@@ -1,15 +1,19 @@
-<div class="form-new-user">
+<div class='new-motorbike-teaser text-center'>
+  <h2>Post your motorbike and start <strong>earning money</strong></h2>
+</div>
+<div class="form-new-motorbike">
   <%= simple_form_for @motorbike do |f| %>
-    <%= f.input :location %>
-    <%= f.input :brand %>
-    <%= f.input :model %>
-    <%= f.input :day_price %>
-    <%= f.input :category %>
+    <%= f.input :brand, placeholder: 'Your motorbike brand' %>
+    <%= f.input :model, placeholder: 'Your motorbike model'%>
+    <%= f.input :description, placeholder: 'Tell us about your bike'%>
+    <%= f.input :location, input_html: { class: 'location' } %>
+    <%= f.input :day_price, placeholder: 'Be reasonable'%>
+    <%= f.input :category, collection: Motorbike::CATEGORIES %>
     <%= f.input :engine_size %>
     <%= f.input :circulation_date %>
     <%= f.input :kilometers %>
-    <%= f.input :description %>
     <%= f.input :photo, as: :attachinary %>
     <%= f.submit "Add a motorbike", class: "btn btn-primary" %>
   <% end %>
 </div>
+

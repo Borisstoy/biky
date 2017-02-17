@@ -12,10 +12,17 @@ class RentalsController < ApplicationController
     @rental.end_date = DateTime.parse(params['rental']['end_date'])
     @rental.user = current_user
     @rental.save
-    redirect_to user_path(current_user)
+    redirect_to motorbike_rental_path(@motorbike, @rental)
   end
 
   def show
+    @rental = Rental.find(params[:id])
+    @motorbike_coordinates = { lat: @motorbike.latitude, lng: @motorbike.longitude }
+    @motorbike_array = [@motorbike]
+    @hash = Gmaps4rails.build_markers(@motorbike_array) do |motorbike, marker|
+      marker.lat motorbike.latitude
+      marker.lng motorbike.longitude
+    end
   end
 
   def accept
