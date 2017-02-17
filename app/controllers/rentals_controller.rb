@@ -16,6 +16,13 @@ class RentalsController < ApplicationController
   end
 
   def show
+    @rental = Rental.find(params[:id])
+    @motorbike_coordinates = { lat: @motorbike.latitude, lng: @motorbike.longitude }
+    @motorbike_array = [@motorbike]
+    @hash = Gmaps4rails.build_markers(@motorbike_array) do |motorbike, marker|
+      marker.lat motorbike.latitude
+      marker.lng motorbike.longitude
+    end
   end
 
   def accept
