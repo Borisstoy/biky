@@ -1,14 +1,6 @@
 <div class="profil-card"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<% if @user.photo? %><%= cl_image_path @user.photo.path, height: 300, width: 400, crop: :fill %><% else %><%= current_user.facebook_picture_url || image_path("helmet.png") %><% end %>')"">
-  <div class="card-category">Driver</div>
-  <div class="card-description">
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star" style="color: yellow;"></i>
-    <i class="fa fa-star"></i>
-  </div>
 
 </div>
 <div class="profil-card-text">

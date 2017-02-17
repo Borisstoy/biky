@@ -1,22 +1,24 @@
 <h2>My past request</h2>
 <div class="all-motor">
   <% @rentals_booked.each do |rent| %>
-  <div class="container-motor-profile">
-    <div class="profile-motor-picture">
-      <img src="<%= cl_image_path rent.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
-    </div>
-    <div class="profile-motor-brand">
-      <h4><%= rent.motorbike.brand %></h4>
-      <p><%= rent.motorbike.model %></p>
-    </div>
-    <div class="profile-motor-model">
-    <p class="title-rating-av">Average rating</p>
-    <% (rent.motorbike.average_rating).times do %>
-      <i class="fa fa-star"></i>
-    <% end %></p>
-    </div>
-  </div>
-  <hr>
+    <%= link_to motorbike_path(rent.motorbike), class: 'link-rental' do %>
+      <div class="container-motor-profile grow">
+        <div class="profile-motor-picture">
+          <img src="<%= cl_image_path rent.motorbike.photo.path, width: 200, height: 130, crop: :fill %>">
+        </div>
+        <div class="profile-motor-brand">
+          <h4><%= rent.motorbike.brand %></h4>
+          <p><%= rent.motorbike.model %></p>
+        </div>
+        <div class="profile-motor-model">
+        <p class="title-rating-av">Average rating</p>
+        <% (rent.motorbike.average_rating).times do %>
+          <i class="fa fa-star"></i>
+        <% end %></p>
+        </div>
+      </div>
+      <hr>
+    <% end %>
   <% end %>
 </div>
 
