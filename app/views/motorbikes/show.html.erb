@@ -2,7 +2,16 @@
 <div class="moto-wrapper text-center">
   <div class="container">
     <div class="row">
+
       <div class="col-xs-12 col-sm-6">
+        <div class="col-item">
+          <% if @motorbike.photo? %>
+          <%= cl_image_tag @motorbike.photo.path, width: 400, crop: :fill, id: "moto-photo" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 motor-show-description">
         <div class="col-item">
           <h2><%= @motorbike.brand %> <%= @motorbike.model %></h2>
           <p><%= @motorbike.description %></p>
@@ -36,13 +45,6 @@
               <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
               <%= f.submit "Book now!", class: "btn btn-success" %>
             <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="col-item">
-          <% if @motorbike.photo? %>
-          <%= cl_image_tag @motorbike.photo.path, width: 400, crop: :fill, id: "moto-photo" %>
           <% end %>
         </div>
       </div>
