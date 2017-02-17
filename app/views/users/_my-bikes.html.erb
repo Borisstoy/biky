@@ -1,19 +1,21 @@
 <h2>My motorbikes</h2>
 <div class="all-motor">
   <% @user.motorbikes.each do |r| %>
-  <div class="container-motor-profile">
-    <div class="profile-motor-picture">
-      <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
+    <%= link_to motorbike_path(r), class: 'link-rental' do %>
+    <div class="container-motor-profile grow">
+      <div class="profile-motor-picture">
+        <img src="<%= cl_image_path r.photo.path, width: 200, height: 130, crop: :fill %>">
+      </div>
+      <div class="profile-motor-brand">
+        <h4><%= r.brand %></h4>
+        <p><%= r.model %></p>
+      </div>
+      <div class="profile-motor-model">
+        <p class="price-motor"><%= r.day_price %>€</p>
+      </div>
     </div>
-    <div class="profile-motor-brand">
-      <h4><%= r.brand %></h4>
-      <p><%= r.model %></p>
-    </div>
-    <div class="profile-motor-model">
-      <p class="price-motor"><%= r.day_price %>€</p>
-    </div>
-  </div>
-  <hr>
+    <hr>
+    <% end %>
   <% end %>
 </div>
 
