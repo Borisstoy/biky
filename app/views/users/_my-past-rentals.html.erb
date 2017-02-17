@@ -24,11 +24,13 @@
         <% end %>
         <hr>
         <h5>Leave a comment</h5>
-        <%= simple_form_for Review.new, url: create_review_path(rent) do |f|%>
-         <%= f.input :content %>
-         <%= f.input :rate %>
-         <%= f.submit "POST", class:'button-blue'%>
-        <% end %>
+        <div class="container-form-reviews">
+          <%= simple_form_for Review.new, url: create_review_path(rent) do |f|%>
+           <%= f.input :content %>
+           <%= f.input :rate %>
+           <%= f.submit "POST", class:'button-blue'%>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <hr>
